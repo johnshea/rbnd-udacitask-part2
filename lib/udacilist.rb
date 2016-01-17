@@ -8,14 +8,6 @@ class UdaciList
   def add(type, description, options={})
     type = type.downcase
 
-    # if options.has_key?(:due)
-    #   puts 'before: ' + options[:due].to_s
-    #   options[:due] = Chronic.parse(options[:due])
-    #   puts 'after: ' + options[:due].to_s
-    # end
-
-    # options[:due] = Chronic.parse(options[:due]) if options.has_key?(:due)
-
     if ["todo", "event", "link"].include?(type)
       if type == "todo"
         if options.has_key?(:priority)
