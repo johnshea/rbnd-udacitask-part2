@@ -34,11 +34,30 @@ class UdaciList
     end
   end
   def all
-    puts "-" * @title.length
-    puts @title
-    puts "-" * @title.length
+    display_header
     @items.each_with_index do |item, position|
       puts "#{position + 1}) #{item.details}"
     end
   end
+
+  def filter(item_type)
+    display_header
+    @items_to_display = @items.select { |item| item.type == item_type }
+    if @items_to_display.empty?
+      puts "No items to display."
+    else
+      @items_to_display.each do |item|
+        puts "#{item.details}"
+      end
+    end
+  end
+
+  private
+
+  def display_header
+    puts "-" * @title.length
+    puts @title
+    puts "-" * @title.length
+  end
+
 end

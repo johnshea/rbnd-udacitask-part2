@@ -3,6 +3,7 @@ require 'colorize'
 # Find a third gem of your choice and add it to your project
 require 'date'
 require_relative "lib/listable"
+require_relative "lib/typeable"
 require_relative "lib/errors"
 require_relative "lib/udacilist"
 require_relative "lib/todo"
@@ -44,4 +45,4 @@ new_list.all
 
 # DEMO FILTER BY ITEM TYPE
 # ------------------------
-# new_list.filter("event")
+new_list.filter("event")
