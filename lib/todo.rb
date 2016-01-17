@@ -16,4 +16,8 @@ class TodoItem
     format_date(@due) +
     format_priority(@priority)
   end
+
+  def change_due_date(due_date)
+    @due = Chronic.parse(due_date)
+  end
 end

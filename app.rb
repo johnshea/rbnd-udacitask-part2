@@ -52,4 +52,20 @@ puts "New Feature 1 - Display nicely formated list for easy printing"
 puts "  - This is showing gem #3 - terminal-table"
 puts "  - First column is so the user can check off the item when completed"
 puts
+
 new_list.pretty_list
+
+puts
+puts "New Feature 2 - Change the due date on a todo item"
+puts
+
+list = UdaciList.new(title: "Things to do")
+list.add("todo", "Watch TV", due: "2016-02-01", priority: "low")
+list.add("todo", "Read book", due: "2016-02-02")
+list.add("todo", "Go for a walk", due: "2016-02-03", priority: "high")
+list.all
+
+puts
+puts "Change item 2's due date to March 1"
+list.change_due_date(2, "2016-03-01")
+list.all

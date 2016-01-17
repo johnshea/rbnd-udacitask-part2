@@ -63,6 +63,10 @@ class UdaciList
     puts table
   end
 
+  def change_due_date(index, due_date)
+    @items[index-1].change_due_date(due_date) if @items[index-1].type == 'todo'
+  end
+
   private
 
   def display_header
