@@ -1,13 +1,34 @@
 # What you added to Udacitask 2.0
 # -------------------------------------------------------
 1. What is the gem of your choice and how did you use it?
+
+   I used gem 'terminal-table' to print out a nicely formated ascii table
+   which the user can print and take with them as a check list.
+
 2. Describe the 2 features you added to the project.
-  a) Feature 1...
-  b) Feature 2...
+  a) Feature 1...I added a nicely formated ascii table
+  b) Feature 2...added the ability for the user to change the due date on a todo item
 
 # REFLECTIONS
 # -------------------------------------------------------
 1. How long did you spend working on this project?
+
+   - Approximately 5 hours
+
 2. What was the most rewarding challenge you conquered?
+
+   - Creating module Typeable which was used for the filtering
+     and also for the displaying of item types
+
 3. What two additional features did you build? Why?
+
+   - Feature 1 - the list can be printed and used as check list.  Why? Makes
+                 the program more usable as I don't need my computer for list
+
+   - Feature 2 - user can change the due date.  Why? Often dates change and
+                 this is a practical feature to help the user manage their list
+
 4. Where do you still have room to grow?
+
+   - Learning more about OOP and how it can be implemented in Ruby
+   - Getting more comfortable with the different types of modules
