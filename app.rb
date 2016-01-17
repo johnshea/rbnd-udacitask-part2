@@ -1,6 +1,6 @@
 require 'chronic'
 require 'colorize'
-# Find a third gem of your choice and add it to your project
+require 'terminal-table'
 require 'date'
 require_relative "lib/listable"
 require_relative "lib/typeable"
@@ -46,3 +46,10 @@ new_list.all
 # DEMO FILTER BY ITEM TYPE
 # ------------------------
 new_list.filter("event")
+
+puts
+puts "New Feature 1 - Display nicely formated list for easy printing"
+puts "  - This is showing gem #3 - terminal-table"
+puts "  - First column is so the user can check off the item when completed"
+puts
+new_list.pretty_list

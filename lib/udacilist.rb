@@ -52,6 +52,17 @@ class UdaciList
     end
   end
 
+  def pretty_list
+    rows = []
+    rows << ["?", "#", "Details"]
+    rows << [" ", " ", " "]
+    @items.each_with_index do |item, position|
+      rows << ["_", position + 1, item.details]
+    end
+    table = Terminal::Table.new :rows => rows
+    puts table
+  end
+
   private
 
   def display_header
