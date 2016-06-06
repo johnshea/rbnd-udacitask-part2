@@ -5,11 +5,13 @@ class UdaciList
     @title = options[:title] || "Untitled List"
     @items = []
   end
+
   def add(type, description, options={})
     type = type.downcase
 
-    if ["todo", "event", "link"].include?(type)
-      if type == "todo"
+    case type
+
+      when "todo"
         if options.has_key?(:priority)
           if ["low", "medium", "high"].include?(options[:priority])
             @items.push TodoItem.new(description, options)
@@ -19,13 +21,18 @@ class UdaciList
         else
           @items.push TodoItem.new(description, options)
         end
-      end
-      @items.push EventItem.new(description, options) if type == "event"
-      @items.push LinkItem.new(description, options) if type == "link"
-    else
-      raise UdaciListErrors::InvalidItemType
+
+      when "event"
+        @items.push EventItem.new(description, options)
+
+      when "link"
+        @items.push LinkItem.new(description, options)
+
+      else
+        raise UdaciListErrors::InvalidItemType
     end
   end
+
   def delete(index)
     if index >= 0 and index < @items.length
       @items.delete_at(index - 1)
@@ -33,6 +40,7 @@ class UdaciList
       raise UdaciListErrors::IndexExceedsListSize
     end
   end
+
   def all
     display_header
     @items.each_with_index do |item, position|
@@ -54,13 +62,13 @@ class UdaciList
 
   def pretty_list
     rows = []
+    # Build headers and blank line for table
     rows << ["?", "#", "Details"]
     rows << [" ", " ", " "]
     @items.each_with_index do |item, position|
       rows << ["_", position + 1, item.details]
     end
-    table = Terminal::Table.new :rows => rows
-    puts table
+    puts Terminal::Table.new :rows => rows
   end
 
   def change_due_date(index, due_date)

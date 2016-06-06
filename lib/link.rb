@@ -10,8 +10,9 @@ class LinkItem
   end
 
   def format_name
-    @site_name ? @site_name : ""
+    @site_name ||= ''
   end
+
   def details
     format_type + format_description(@description) + "site name: " + format_name
   end

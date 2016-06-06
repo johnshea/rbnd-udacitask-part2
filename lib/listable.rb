@@ -4,15 +4,22 @@ module Listable
   end
 
   def format_priority(priority)
-    value = " ⇧".colorize(:red) if priority == "high"
-    value = " ⇨".colorize(:yellow) if priority == "medium"
-    value = " ⇩".colorize(:green) if priority == "low"
-    value = "" if !priority
+    value = case priority
+    when "high"
+      " ⇧".colorize(:red)
+    when "medium"
+      " ⇨".colorize(:yellow)
+    when "low"
+      " ⇩".colorize(:green)
+    else
+      ""
+    end
+
     return value
   end
 
   def format_date(date1, date2 = nil)
-    if date2 == nil
+    if date2.nil?
       date1 ? date1.strftime("%D") : "No due date"
     else
       dates = date1.strftime("%D") if date1
